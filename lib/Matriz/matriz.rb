@@ -1,4 +1,7 @@
 #Definicion de la clase matriz:
+
+require './lib/Matriz/racional.rb'
+
 class Matriz
 
     attr_reader :matriz
@@ -75,8 +78,12 @@ class Matriz
 end
 
 if __FILE__ == $0
-    A = Matriz.new([[1,2,5],[3,4,5],[3,4,5]])
-    B = Matriz.new([[1,2,5],[3,4,5],[3,4,5]])
+    F0 = Fraccion.new(1,2)
+    F1 = Fraccion.new(3,7)
+    F2 = Fraccion.new(1,2)
+    F3 = Fraccion.new(3,7)
+    A = Matriz.new([[F0,F1],[F2,F3]])
+    B = Matriz.new([[F0,F1],[F2,F3]])
     puts A
     puts B
     puts "SUMA"

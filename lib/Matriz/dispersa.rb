@@ -50,16 +50,26 @@ class Matriz_Dispersa < Matriz
                 check = false
                 while(k < self.matriz.length)
                     if(self.matriz[k][1] == i && self.matriz[k][2] == j)
-                        aux << other.matriz[i][j] - self.matriz[k][0]
+                        aux << (other.matriz[i][j] - self.matriz[k][0]) * (-1)
                         check = true
                     end
                     k += 1          
                 end
                 if(!check)
-                    aux << other.matriz[i][j]
+                    aux << other.matriz[i][j] * (-1)
                 end
             end
             result << aux
+        end
+        Matriz.new(result)
+    end
+
+    def *(other)
+        result = Array.new(other.matriz.length){|i| Array.new(other.matriz[i].length){0}}
+        self.matriz.length.times do |i|
+            other.matriz[i].length.times do |j|
+                result[self.matriz[i][1]][j] += other.matriz[self.matriz[i][2]][j]*self.matriz[i][0]
+            end
         end
         Matriz.new(result)
     end
@@ -76,12 +86,9 @@ class Matriz_Dispersa < Matriz
 end
 
 if __FILE__ == $0
-    A = Matriz.new([[8,2],[3,4]])
-    B = Matriz_Dispersa.new([[1,0],[0,0]])
-    puts A
-    puts B
-    puts "SUMA"
-    puts A+B
-    puts "RESTA"
-    puts A-B
+    A = Matriz.new([[2,2,3],[0,7,7],[7,0,9]])
+    B = Matriz_Dispersa.new([[0,3,0],[0,1,0],[7,0,0]])
+    C = Matriz.new([[0,3,0],[0,1,0],[7,0,0]])
+    puts B-A
+    puts C-A
 end

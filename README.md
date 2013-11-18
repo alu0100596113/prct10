@@ -29,7 +29,7 @@ $ tree
 1. Se creará una clase Matriz tal y como se tenía en la práctica anterior
 2. Se creará una clase hija de Matriz, clase Martiz_Dispersa
 
-`class Matriz_Dispersa < Matriz` 
+	`class Matriz_Dispersa < Matriz` 
 3. En Matriz_Dispersa se redefinirán los métodos para trabajar con Matrices.
 
 
@@ -54,14 +54,33 @@ $ tree
 
 ```ruby
 	def initialize(array)
-		recibe un solamente un array
+
+	#recibe un solamente un array
 
 	def +(other)
 	def -(other)
 	def *(other)
-		reciben una matriz y retorna una nueva matriz con el resultado
+	
+	#reciben una matriz y retorna una nueva matriz con el resultado
 ```
 
+##Estructura de la clase Fracción
+
+###Variables y métodos básicos para que funcionen las especificaciones requeridas
+
+```ruby
+	def initialize(numerador,denominador)
+
+	#recibe la fraccion de dos partes
+	#numerador y denominador
+
+	#Métodos necesarios para el funcionamiento: Suma, Resta y Producto
+	def +(other)
+	def -(other)
+	def *(other)
+
+	#reciben una fraccion y retorna una nueva fraccion con el resultado
+```
 
 ## Installation
 

@@ -1,6 +1,34 @@
 # Matriz
 
-TODO: Write a gem description
+## Creación de la estructura de la Gema
+
+Comando para generar la jerarquía y ficheros de la gema:
+	$ bundle gem Matriz
+
+## Estructura del repositorio inicial
+
+	$ tree
+	
+.
+└── Matriz
+	├── Gemfile
+	├── lib
+	│   ├── Matriz
+	│   │   └── version.rb
+	│   └── Matriz.rb
+	├── LICENSE.txt
+	├── Matriz.gemspec
+	├── Rakefile
+	└── README.md
+
+## Organización del trabajo
+
+1. Se creará una clase Matriz tal y como se tenía en la práctica anterior
+2. Se creará una clase hija de Matriz, clase Martiz_Dispersa
+
+	class Matriz_Dispersa < Matriz 
+3. En Matriz_Dispersa se redefinirán los métodos para trabajar con Matrices.
+
 
 ## Installation
 

@@ -14,7 +14,7 @@ class Matriz
     end
 
     def +(other)
-        if(other.is_a?Matriz)
+        if(other.instance_of?Matriz)
             result = Array.new
             self.matriz.length.times do |i|
                 aux = Array.new
@@ -24,11 +24,13 @@ class Matriz
                 result << aux
             end
             Matriz.new(result)
+        else
+            other+self
         end
     end
 
     def -(other)
-        if(other.is_a?Matriz)
+        if(other.instance_of?Matriz)
             result = Array.new
             self.matriz.length.times do |i|
                 aux = Array.new
@@ -38,11 +40,13 @@ class Matriz
                 result << aux
             end
             Matriz.new(result)
+        else
+            other-self
         end
     end
 
     def *(other)
-        if(other.is_a?Matriz)
+        if(other.instance_of?Matriz)
             if(self.matriz.length != other.matriz[0].length)
                 raise ArgumentError, 'Numero de filas de A tiene que ser igual al numero de columnas de B'
             elsif       
@@ -60,6 +64,8 @@ class Matriz
                 end
                 Matriz.new(result)
             end
+        else
+            other*self
         end
     end
     
@@ -74,6 +80,10 @@ class Matriz
         end
         pr << "\n"
         pr
+    end
+
+    def coerce(something)
+        [something, self]
     end
 end
 

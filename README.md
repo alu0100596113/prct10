@@ -47,6 +47,22 @@ $ tree
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "guard-bundler"
 ```
+
+##Estructura de la clase Matriz
+
+###Variables y métodos
+
+```ruby
+	def initialize(array)
+		recibe un solamente un array
+
+	def +(other)
+	def -(other)
+	def *(other)
+		reciben una matriz y retorna una nueva matriz con el resultado
+```
+
+
 ## Installation
 
 Add this line to your application's Gemfile:

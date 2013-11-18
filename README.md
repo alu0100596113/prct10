@@ -62,6 +62,27 @@ $ tree
 	def *(other)
 	
 	#reciben una matriz y retorna una nueva matriz con el resultado
+
+	def coerce(something)
+
+	#recibe un objeto y devuelve un array:
+	#[objeto,self]
+```
+
+##Estructura de la clase Matriz_Dispersa
+
+###Variables y métodos
+
+```ruby
+	def initialize(array)
+
+	#recibe un solamente un array
+
+	def +(other)
+	def -(other)
+	def *(other)
+	
+	#reciben una matriz y retorna una nueva matriz con el resultado
 ```
 
 ##Estructura de la clase Fracción

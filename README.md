@@ -85,6 +85,20 @@ $ tree
 	#reciben una matriz y retorna una nueva matriz con el resultado
 ```
 
+###Aclaración
+Los métodos implementados solo funcionan para una Matriz x Matriz_Dispersa o viceversa.
+
+Ejemplo:
+
+```ruby
+	A = Matriz.new([[2,2,3],[0,7,7],[7,0,9]])
+    B = Matriz_Dispersa.new([[0,3,0],[0,1,0],[7,0,0]])
+
+    puts A-B
+    puts B-A
+```
+ Para realizar las operaciones entre Matrices 'normales' se utilizan los métodos de la clase Matriz
+ 
 ##Estructura de la clase Fracción
 
 ###Variables y métodos básicos para que funcionen las especificaciones requeridas

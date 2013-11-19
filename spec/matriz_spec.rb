@@ -65,9 +65,19 @@ describe Matriz_Dispersa do
 	describe "#OPERACIONES ENTRE MATRICES DISPERSAS Y DENSAS" do
 		it "SUMA @I + @D3" do
 			r = @i+@d3
+			f1 = Fraccion.new(3,2)
+			f2 = Fraccion.new(4,3)
+			f3 = Fraccion.new(5,4)
+			f4 = Fraccion.new(1,1)
+			r.should eq([[f1,f4,f4],[f4,f2,f4],[f4,f4,f3]])
 		end
 		it "RESTA @I - @D3" do
-		  
+			r = @i-@d3
+			f1 = Fraccion.new(-1,2)
+			f2 = Fraccion.new(-2,3)
+			f3 = Fraccion.new(-3,4)
+			f4 = Fraccion.new(-1,1)
+			r.should eq([[f1,f4,f4],[f4,f2,f4],[f4,f4,f3]])		  
 		end
 		it "MULTIPLICACION @I*@D3" do
 		  

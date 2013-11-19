@@ -1,5 +1,4 @@
 require './lib/Matriz/matriz.rb'
-
 class Matriz_Dispersa < Matriz
 
     attr_reader :matriz
@@ -92,3 +91,15 @@ if __FILE__ == $0
     puts B-A
     puts C-A
 end
+# i = Matriz.new([[1,1,1],[1,1,1],[1,1,1]])
+# f1 = Fraccion.new(1,2)
+# f2 = Fraccion.new(1,3)
+# f3 = Fraccion.new(1,4)
+# f4 = Fraccion.new(1,5)
+# f5 = Fraccion.new(2,3)
+# f6 = Fraccion.new(3,4)
+# f7 = Fraccion.new(4,5)
+# c1 = Fraccion.new(0,3)
+# d3 = Matriz_Dispersa.new([[f1,c1,c1],[c1,f2,c1],[c1,c1,f3]])
+# r=i*d3
+# puts r

@@ -1,12 +1,11 @@
-re './lib/matriz.rb'
-require './lib/racional.rb'
+require './lib/Matriz/dispersa.rb'
+require './lib/Matriz/racional.rb'
+require "./lib/Matriz/matriz.rb"
 
 describe Matriz_Dispersa do
         before :each do
-                @m1 = Matriz.new(2)
-                @m1.fill([[1,2],[3,4]])
-                @m2 = Matriz.new(2,3)
-                @m2.fill([[1,2,5],[3,4,5]])
+                @m1 = Matriz.new([[1,2],[3,4]])
+                @m2 = Matriz.new([[1,2,5],[3,4,5]])
                 @f1 = Fraccion.new(1,2)
                 @f2 = Fraccion.new(1,3)
                 @f3 = Fraccion.new(1,4)
@@ -15,20 +14,14 @@ describe Matriz_Dispersa do
                 @f6 = Fraccion.new(3,4)
                 @f7 = Fraccion.new(4,5)
 		@c1 = Fraccion.new(0,3)
-                @m3 = Matriz.new(2)
-                @m3.fill([[@f1,@f1],[@f1,@f1]])
-                @m4 = Matriz.new(2)
-                @m4.fill([[@f1,@f2],[@f3,@f4]])
-                @m5 = Matriz.new(2)
-                @m5.fill([[@f1,@f5],[@f6,@f7]])
-		@d1 = Matriz_Dispersa.new(4)
-		@d1.fill([[1,0,0,0],[0,2,0,0],[0,0,3,0],[0,0,0,4]])
-		@d2 = Matriz_Dispersa.new(4)
-		@d2.fill([[0,5,0,4],[0,2,0,0],[3,0,0,0],[0,0,1,0]])
-		@i = Matriz.new(3)
-		@i.fill([[1,1,1],[1,1,1],[1,1,1]])
-		@d3 = Matriz_Dispersa.new(3)
-		@f3.fill([[@f1,@c1,@c1],[@c1,@f2,@c1],[@c1,@c1,@f3]]) 
+                @m3 = Matriz.new([[@f1,@f1],[@f1,@f1]])
+                @m4 = Matriz.new([[@f1,@f2],[@f3,@f4]])
+                @m5 = Matriz.new([[@f1,@f5],[@f6,@f7]])
+		@d1 = Matriz_Dispersa.new([[1,0,0,0],[0,2,0,0],[0,0,3,0],[0,0,0,4]])		
+		@d2 = Matriz_Dispersa.new([[0,5,0,4],[0,2,0,0],[3,0,0,0],[0,0,1,0]])
+		@i = Matriz.new([[1,1,1],[1,1,1],[1,1,1]])
+		@d3 = Matriz_Dispersa.new([[@f1,@c1,@c1],[@c1,@f2,@c1],[@c1,@c1,@f3]])
+
 
         end
         describe "#ALMACENAMIENTO DE FRACCIONES EN MATRICES" do
@@ -54,18 +47,7 @@ describe Matriz_Dispersa do
                         m.should eq([[f1,f2],[f3,f4]])
                 end
         end
-        describe "#OPERACIONES PROPIAS DE MATRICES" do
-                it "TRANSPONER @M4" do
-                        m = @m4.trasp
-                        m.should eq([[@f1,@f3],[@f2,@f4]])
-                end
-        end
-        describe "#COMPARACION" do
-                it "Comparacion entre matrices" do
-                        (@m3==@m3).should eq(true)
-                end
-        end
-	describe "#OPERACIONES ENTRE MATRICES DISPERSAS" do
+       	describe "#OPERACIONES ENTRE MATRICES DISPERSAS" do
 		it "SUMA DE @D1 Y D2" do
 			r = @d1+@d2
 			r.should eq([[1,5,0,4],[0,4,0,0],[3,0,3,0],[0,0,1,4]]) 
@@ -83,6 +65,12 @@ describe Matriz_Dispersa do
 	describe "#OPERACIONES ENTRE MATRICES DISPERSAS Y DENSAS" do
 		it "SUMA @I + @D3" do
 			r = @i+@d3
+		end
+		it "RESTA @I - @D3" do
+		  
+		end
+		it "MULTIPLICACION @I*@D3" do
+		  
 		end
 	end
 

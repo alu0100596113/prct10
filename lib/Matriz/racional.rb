@@ -6,7 +6,9 @@ class Fraccion
         def initialize(num,den)
             @n,@d = num.to_i , den.to_i
         end
-
+	def coerse(other)
+		[other,self]
+	end
         def to_s
             "#{@n} / #{@d}"
         end
@@ -26,9 +28,14 @@ class Fraccion
         end
 
         def +(other)
-            n = @n*other.d+@d*other.n
-            d = @d*other.d
-            Fraccion.new(n/gcd(n,d),d/gcd(n,d))
+		if other.class != Fixnum
+            		n = @n*other.d+@d*other.n
+            		d = @d*other.d
+            		Fraccion.new(n/gcd(n,d),d/gcd(n,d))
+		elsif other.class == Fixnum
+			n = @n+@d*other
+			d = @d
+		end
         end
 
         def -(other)
@@ -99,4 +106,6 @@ class Fraccion
             f1%f2
         end
 end
-
+f1=Fraccion.new(1,2)
+r=1+f1
+puts r

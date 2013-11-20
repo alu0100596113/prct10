@@ -1,5 +1,7 @@
 require "Matriz/version"
 
 module Matriz
-  # Your code goes here...
+  include 'Matriz/matriz.rb'
+  include 'Matriz/dispersa.rb'
+  include 'Matriz/racional.rb'
 end

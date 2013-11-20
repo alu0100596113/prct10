@@ -1,45 +1,56 @@
 # Matriz
 
-### Creación de la estructura de la Gema
+## Organización del trabajo
+
++ Se creará una clase Matriz tal y como se tenía en la práctica anterior
++ Se creará una clase hija de Matriz, clase Martiz_Dispersa
+
+```ruby
+	class Matriz_Dispersa < Matriz
+``` 
++ En Matriz_Dispersa se redefinirán los métodos para trabajar con Matrices.
+
+```ruby
+	#Para operar
+	def +(other)
+	def -(other)
+	def *(other)
+	
+	#Para mostrar
+	def to_s
+```
++ Crearlo en forma de Gema
+
+## Creación de la estructura de la Gema
 
 Comando para generar la jerarquía y ficheros de la gema:
 
 `$ bundle gem Matriz`
 
-### Estructura del repositorio inicial
+###Estructura del repositorio inicial
 
-```	
+```bash
 $ tree
 
 .
-└── Matriz
-	├── Gemfile
-	├── lib
-	│   ├── Matriz
-	│   │   └── version.rb
-	│   └── Matriz.rb
-	├── LICENSE.txt
-	├── Matriz.gemspec
-	├── Rakefile
-	└── README.md
+├── Gemfile
+├── lib
+│   ├── Matriz
+│   │   └── version.rb
+│   └── Matriz.rb
+├── LICENSE.txt
+├── Matriz.gemspec
+├── Rakefile
+└── README.md
 ```
 
-### Organización del trabajo
+###Primera ampliación
 
-1. Se creará una clase Matriz tal y como se tenía en la práctica anterior
-2. Se creará una clase hija de Matriz, clase Martiz_Dispersa
++ Guardfile
++ .travis.yml
++ Dependencias:
 
-	`class Matriz_Dispersa < Matriz` 
-3. En Matriz_Dispersa se redefinirán los métodos para trabajar con Matrices.
-
-
-##Ampliación de la jerarquía
-
-1. Guardfile
-2. .travis.yml
-3. Dependencias:
-
-```
+```gemspec
   spec.add_development_dependency "bundler", "~> 1.3"
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
@@ -47,61 +58,34 @@ $ tree
   spec.add_development_dependency "guard-rspec"
   spec.add_development_dependency "guard-bundler"
 ```
++ racional.rb
++ matriz.rb
++ dispersa.rb
 
-##Estructura de la clase Matriz
+###Estructura tras la primera ampliación
 
-###Variables y métodos
-
-```ruby
-	def initialize(array)
-
-	#recibe un solamente un array
-
-	def +(other)
-	def -(other)
-	def *(other)
-	
-	#reciben una matriz y retorna una nueva matriz con el resultado
-
-	def coerce(something)
-
-	#recibe un objeto y devuelve un array:
-	#[objeto,self]
+```bash
+$ tree
+.
+├── Gemfile
+├── Guardfile
+├── lib
+│   ├── Matriz
+│   │   ├── dispersa.rb
+│   │   ├── matriz.rb
+│   │   ├── racional.rb
+│   │   └── version.rb
+│   └── Matriz.rb
+├── LICENSE.txt
+├── Matriz.gemspec
+├── Rakefile
+└── README.md
 ```
+##Estructuras de Clases
 
-##Estructura de la clase Matriz_Dispersa
+###Estructura de la clase Fracción
 
-###Variables y métodos
-
-```ruby
-	def initialize(array)
-
-	#recibe un solamente un array
-
-	def +(other)
-	def -(other)
-	def *(other)
-	
-	#reciben una matriz y retorna una nueva matriz con el resultado
-```
-
-###Aclaración
-Los métodos implementados solo funcionan para una Matriz x Matriz_Dispersa o viceversa.
-
-Ejemplo:
-
-```ruby
-	A = Matriz.new([[2,2,3],[0,7,7],[7,0,9]])
-    B = Matriz_Dispersa.new([[0,3,0],[0,1,0],[7,0,0]])
-
-    puts A-B
-    puts B-A
-```
- Para realizar las operaciones entre Matrices 'normales' se utilizan los métodos de la clase Matriz
- 
-##Estructura de la clase Fracción
-
-###Variables y métodos básicos para que funcionen las especificaciones requeridas
+####Variables y métodos básicos para que funcionen las especificaciones requeridas
 
 ```ruby
 	def initialize(numerador,denominador)
@@ -117,28 +101,88 @@ Ejemplo:
 	#reciben una fraccion y retorna una nueva fraccion con el resultado
 ```
 
-## Installation
+###Estructura de la clase Matriz
 
-Add this line to your application's Gemfile:
+####Variables y métodos
+
+```ruby
+	def initialize(array)
+
+	#recibe un solamente un array
+
+	def +(other)
+	def -(other)
+	def *(other)
+	
+	#reciben una matriz y retorna una nueva matriz con el resultado
+
+	def coerce(something)
+
+	#recibe un objeto y devuelve un array:
+	#[something,self]
+	
+	def to_s
+	
+	#no recibe nada y devuelve un string con la matriz en forma normal
+```
+
+###Estructura de la clase Matriz_Dispersa
+
+####Variables y métodos
+
+```ruby
+	def initialize(array)
+
+	#recibe un solamente un array
+
+	def +(other)
+	def -(other)
+	def *(other)
+	
+	#reciben una matriz y retorna una nueva matriz con el resultado
+	
+	def to_s
+	
+	#no recibe nada y devuelve un string con la matriz de la siguiente forma:
+	#valor | (x,y)
+```
+
+#####Aclaración
+
+Los métodos implementados solo funcionan para una ___Matriz x MatrizDispersa o viceversa___.
+
+Ejemplo:
+
+```ruby
+    A = Matriz.new([[2,2,3],[0,7,7],[7,0,9]])
+    B = Matriz_Dispersa.new([[0,3,0],[0,1,0],[7,0,0]])
+
+    puts A-B
+    puts B-A
+```
+ Para realizar las operaciones entre Matrices 'normales' se utilizan los métodos de la clase Matriz
+ 
+## Instalación
+
+Añade al Gemfile esta línea:
 
     gem 'Matriz'
 
-And then execute:
+y luego ejecuta:
 
     $ bundle
 
-Or install it yourself as:
+O puedes instalarla así:
 
     $ gem install Matriz
 
-## Usage
+## Uso
 
-TODO: Write usage instructions here
+Esta gema está pensada para trabajar con matrices de una forma más cómoda, tal y como lo haríamos a lápiz y papel.
 
-## Contributing
+## Contribuye
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+1. Crea una rama (`git checkout -b my-new-feature`)
+2. Haz 'Commit' con tus cambios  (`git commit -am 'Add some feature'`)
+3. Haz 'Push' de la rama (`git push origin my-new-feature`)
+4. Crea un nuevo 'Pull Request'

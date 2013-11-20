@@ -4,5 +4,5 @@ RSpec::Core::RakeTask.new
 task :default => :test
 
 task :test => :spec do
-  sh "ruby -Ilib -Itest test/tc_lpp_t_04_matrix.rb"
+  sh "ruby -Ilib -Itest Test/tc_dispersa.rb"
 end

@@ -73,6 +73,42 @@ class Matriz_Dispersa < Matriz
         Matriz.new(result)
     end
 
+    def max
+        pivote = 0
+        (1..self.matriz.length-1).each do |i|
+            if(self.matriz[i][0] > self.matriz[pivote][0])
+                pivote = i
+            end
+        end
+        puts "\t#{self.matriz[pivote][0]} | (#{self.matriz[pivote][1]},#{self.matriz[pivote][2]})\n"
+    end
+
+    def min
+        pivote = 0
+        (1..self.matriz.length-1).each do |i|
+            if(self.matriz[i][0] < self.matriz[pivote][0])
+                pivote = i
+            end
+        end
+        puts "\t#{self.matriz[pivote][0]} | (#{self.matriz[pivote][1]},#{self.matriz[pivote][2]})\n"
+    end
+
+    def eq(other)
+        cont = 0
+        max = self.matriz.length
+        if(self.matriz.length == other.matriz.length)
+            self.matriz.length.times do |i|
+                if(self.matriz[i] == other.matriz[i])
+                    cont += 1
+                end
+            end
+        end
+        if(max == cont)
+            return true
+        end
+        return false
+    end
+
     def to_s
         pr = ""
         self.matriz.length.times do |i|

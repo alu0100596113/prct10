@@ -26,39 +26,41 @@ describe Matriz_Dispersa do
         end
         describe "#ALMACENAMIENTO DE FRACCIONES EN MATRICES" do
                 it "Se almacena correctamente" do
-                        @m4.should eq([[@f1,@f2],[@f3,@f4]])
+                        @m4.eq(Matriz.new([[@f1,@f2],[@f3,@f4]])).should eq(true)
                 end
         end
         describe "#OPERACIONES ARITMETICAS CON FRACCIONES EN MATRICES" do
                 it "SUMA DE @M4 CON @M5" do
                         m = @m4+@m5
-                        m.should eq([[1,1],[1,1]])
+                        f = Fraccion.new(1,1)
+                        m.eq(Matriz.new([[f,f],[f,f]])).should eq(true)
                 end
                 it "RESTA DE @M3 CON @M3" do
                         m = @m3-@m3
-                        m.should eq([[0,0],[0,0]])
+                        f = Fraccion.new(0,1)
+                        m.eq(Matriz.new([[f,f],[f,f]])).should eq(true)
                 end
                 it "PRODUCTO DE @M4 CON @M5" do
                         m = @m4*@m5
                         f1 = Fraccion.new(1,2)
                         f2 = Fraccion.new(3,5)
-                        f3 = Fraccion.new(11/40)
-                        f4 = Fraccion.new(49/150)
-                        m.should eq([[f1,f2],[f3,f4]])
+                        f3 = Fraccion.new(11,40)
+                        f4 = Fraccion.new(49,150)
+                        m.eq(Matriz.new([[f1,f2],[f3,f4]])).should eq(true)
                 end
         end
        	describe "#OPERACIONES ENTRE MATRICES DISPERSAS" do
 		it "SUMA DE @D1 Y D2" do
 			r = @d1+@d2
-			r.should eq([[1,5,0,4],[0,4,0,0],[3,0,3,0],[0,0,1,4]]) 
+			r.eq(Matriz.new([[1,5,0,4],[0,4,0,0],[3,0,3,0],[0,0,1,4]])).should  eq(true)
 		end
 		it "RESTA DE @D1 Y @D2" do
 			r = @d1-@d2
-			r.should eq([[1,-5,0,-4],[0,0,0,0],[-3,0,3,0],[0,0,-1,4]])
+			r.eq(Matriz.new([[1,-5,0,-4],[0,0,0,0],[-3,0,3,0],[0,0,-1,4]])).should  eq(true)
 		end
 		it "MULTIPLICACION @D1 y @D2" do
 			r = @d1*@d2
-			r.should eq([[0,5,0,4],[0,4,0,0],[9,0,0,0],[0,0,4,0]])
+			r.eq(Matriz.new([[0,5,0,4],[0,4,0,0],[9,0,0,0],[0,0,4,0]])).should eq(true)
 			
 		end
 	end
@@ -69,7 +71,7 @@ describe Matriz_Dispersa do
 			f2 = Fraccion.new(4,3)
 			f3 = Fraccion.new(5,4)
 			f4 = Fraccion.new(1,1)
-			r.should eq([[f1,f4,f4],[f4,f2,f4],[f4,f4,f3]])
+			r.eq(Matriz.new([[f1,f4,f4],[f4,f2,f4],[f4,f4,f3]])).should eq(true)
 		end
 		it "RESTA @I - @D3" do
 			r = @i-@d3
@@ -77,7 +79,7 @@ describe Matriz_Dispersa do
 			f2 = Fraccion.new(-2,3)
 			f3 = Fraccion.new(-3,4)
 			f4 = Fraccion.new(-1,1)
-			r.should eq([[f1,f4,f4],[f4,f2,f4],[f4,f4,f3]])		  
+			r.eq(Matriz.new([[f1,f4,f4],[f4,f2,f4],[f4,f4,f3]])).should eq(true)	  
 		end
 		it "MULTIPLICACION @I*@D3" do
 		  

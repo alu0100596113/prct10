@@ -110,6 +110,3 @@ class Fraccion
             f1%f2
         end
 end
-f1=Fraccion.new(1,2)
-r=1+f1
-puts r

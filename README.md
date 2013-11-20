@@ -115,6 +115,13 @@ $ tree
 	def *(other)
 	
 	#reciben una matriz y retorna una nueva matriz con el resultado
+	
+	def min
+	def max
+	
+	#No reciben parámetros y devuelven nil
+	#Muestra una cadena del tipo:
+	#9 | (2,2)
 
 	def coerce(something)
 
@@ -140,6 +147,13 @@ $ tree
 	def *(other)
 	
 	#reciben una matriz y retorna una nueva matriz con el resultado
+	
+	def min
+	def max
+	
+	#No reciben parámetros y devuelven nil
+	#Muestra una cadena del tipo:
+	#9 | (2,2)
 	
 	def to_s
 	

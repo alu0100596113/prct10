@@ -123,6 +123,3 @@ class Fraccion
 	    [self,something]
 	end
 end
-f=Fraccion.new(1,2)
-r=2-f
-puts r

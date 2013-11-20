@@ -1,5 +1,4 @@
 require './lib/Matriz/matriz.rb'
-
 class Matriz_Dispersa < Matriz
 
     attr_reader :matriz
@@ -74,26 +73,6 @@ class Matriz_Dispersa < Matriz
         Matriz.new(result)
     end
 
-    def max
-        pivote = 0
-        (1..self.matriz.length-1).each do |i|
-            if(self.matriz[i][0] > self.matriz[pivote][0])
-                pivote = i
-            end
-        end
-        puts "\t#{self.matriz[pivote][0]} | (#{self.matriz[pivote][1]},#{self.matriz[pivote][2]})\n"
-    end
-
-    def min
-        pivote = 0
-        (1..self.matriz.length-1).each do |i|
-            if(self.matriz[i][0] < self.matriz[pivote][0])
-                pivote = i
-            end
-        end
-        puts "\t#{self.matriz[pivote][0]} | (#{self.matriz[pivote][1]},#{self.matriz[pivote][2]})\n"
-    end
-
     def to_s
         pr = ""
         self.matriz.length.times do |i|
@@ -111,6 +90,16 @@ if __FILE__ == $0
     C = Matriz.new([[0,3,0],[0,1,0],[7,0,0]])
     puts B-A
     puts C-A
-    B.max
-    B.min
 end
+# i = Matriz.new([[1,1,1],[1,1,1],[1,1,1]])
+# f1 = Fraccion.new(1,2)
+# f2 = Fraccion.new(1,3)
+# f3 = Fraccion.new(1,4)
+# f4 = Fraccion.new(1,5)
+# f5 = Fraccion.new(2,3)
+# f6 = Fraccion.new(3,4)
+# f7 = Fraccion.new(4,5)
+# c1 = Fraccion.new(0,3)
+# d3 = Matriz_Dispersa.new([[f1,c1,c1],[c1,f2,c1],[c1,c1,f3]])
+# r=i*d3
+# puts r

@@ -68,32 +68,6 @@ class Matriz
             other*self
         end
     end
-
-    def max
-        piv_i, piv_j = 0, 0
-        (1..self.matriz.length-1).each do |i|
-            self.matriz.length.times do |j|
-                if(self.matriz[i][j] > self.matriz[piv_i][piv_j])
-                    piv_i = i
-                    piv_j = j
-                end
-            end
-        end
-        puts "\t#{self.matriz[piv_i][piv_j]} | (#{piv_i},#{piv_j})\n"
-    end
-
-    def min
-        piv_i, piv_j = 0, 0
-        (1..self.matriz.length-1).each do |i|
-            self.matriz.length.times do |j|
-                if(self.matriz[i][j] < self.matriz[piv_i][piv_j])
-                    piv_i = i
-                    piv_j = j
-                end
-            end
-        end
-        puts "\t#{self.matriz[piv_i][piv_j]} | (#{piv_i},#{piv_j})\n"
-    end
     
     def to_s
         pr = ""
@@ -128,7 +102,4 @@ if __FILE__ == $0
     puts A-B
     puts "PRODUCTO"
     puts A*B
-    C = Matriz.new([[2,2,3],[0,7,7],[7,0,9]])
-    C.max
-    C.min
 end
